@@ -1,0 +1,126 @@
+body{
+    background-color: #121c32;
+}
+
+*, :root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-synthesis: none;
+
+    /*melhora na qualidade*/
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antiaLiased;
+    -moz-asx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+}
+
+#acertos{
+    text-align: center;
+    background-color: #a3e635;
+    padding: 12px;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+
+    width: 100%; /*largura*/
+}
+
+main{
+    max-width: 640px;
+    margin: 0 auto 64px; /*top left right bottom*/
+    padding: 20px;
+}
+
+header{
+    margin-top: 64px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #334155;
+}
+
+header h1{
+    margin-top: 24px;
+    font-size: 30px;
+    color: aliceblue;
+}
+
+.quiz-item{
+    margin-top: 24px;
+    border: 1px solid #475569;
+    border-radius: 6px;
+
+    overflow: hidden;
+}
+
+.quiz-item h3{
+    padding: 16px 20px;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #1e293b;
+}
+
+.quiz-item dl{
+    padding: 20px 24px;
+    display: grid;
+    gap: 8px; /* espaço entre elementos */
+    background-color: #334155;
+}
+
+.quiz-item dl dt{
+    font-size: 14px;
+    line-height: 24px; /* altura da linha */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: aliceblue;
+}
+
+input{
+    all: unset; /* all pega todas as propriedades dentro do input, unset tira as atribuições */
+    border: 1px solid #94a3b8;
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+input:checked{
+    border: 1px solid #a3e635;
+}
+
+input:checked::before{ /* deixa o input verde ao ser clicado */
+    content: "";
+    width: 10px;
+    height: 10px;
+    background-color: #a3e635;
+    border-radius: 10px;
+}
+
+#quiz{
+    counter-reset: quiz-item;
+}
+
+.quiz-item h3::before{
+    counter-increment: quiz-item;
+    content: counter(quiz-item);    /* coloca o número de cada questão no quiz*/
+
+    background-color: #475569;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
